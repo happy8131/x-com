@@ -2,7 +2,11 @@
 import style from "./post.module.css";
 import cx from "classnames";
 
-export default function ActionButtons() {
+type Props = {
+  white?: boolean;
+};
+
+export default function ActionButtons({ white }: Props) {
   const commented = true;
   const reposted = true;
   const liked = false;

@@ -9,7 +9,7 @@ import {
 import Post from "@/app/(afterLogin)/_component/Post";
 import { Post as IPost } from "../../../model/Post";
 import { Fragment, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+//import { useInView } from "react-intersection-observer";
 import styles from "@/app/(afterLogin)/home/home.module.css";
 import { getPostRecommends } from "../lib/getPostRecommends";
 
@@ -36,16 +36,16 @@ export default function PostRecommends() {
     staleTime: 60 * 1000, // fresh -> stale, 5분이라는 기준
     gcTime: 300 * 1000,
   });
-  const { ref, inView } = useInView({
-    threshold: 0,
-    delay: 0,
-  });
+  // const { ref, inView } = useInView({
+  //   threshold: 0,
+  //   delay: 0,
+  // });
 
-  useEffect(() => {
-    if (inView) {
-      !isFetching && hasNextPage && fetchNextPage();
-    }
-  }, [inView, isFetching, hasNextPage, fetchNextPage]);
+  // useEffect(() => {
+  //   if (inView) {
+  //     !isFetching && hasNextPage && fetchNextPage();
+  //   }
+  // }, [inView, isFetching, hasNextPage, fetchNextPage]);
 
   if (isPending) {
     return (
@@ -94,7 +94,7 @@ export default function PostRecommends() {
           ))}
         </Fragment>
       ))}
-      <div ref={ref} style={{ height: 50 }} />
+      {/* <div ref={ref} style={{ height: 50 }} /> */}
     </>
   );
 }

@@ -1,5 +1,6 @@
+import { Post } from "@/app/model/Post";
 import { QueryFunction } from "@tanstack/query-core";
-import { Post } from "@/model/Post";
+//import { Post } from "@/model/Post";
 
 export const getSearchResult: QueryFunction<
   Post[],

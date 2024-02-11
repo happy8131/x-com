@@ -1,10 +1,10 @@
 "use client";
 
 import Post from "@/app/(afterLogin)/_component/Post";
-import { Post as IPost } from "@/model/Post";
+import { Post as IPost } from "@/app/model/Post";
 
 import { useQuery } from "@tanstack/react-query";
-import { getSearchResult } from "./_lib/getSearchResult";
+import { getSearchResult } from "../_lib/getSearchResult";
 
 type Props = {
   searchParams: { q: string; f?: string; pf?: string };

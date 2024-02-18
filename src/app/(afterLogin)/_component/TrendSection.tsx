@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { useQuery } from "@tanstack/react-query";
 import { Hashtag } from "@/app/model/Hashtag";
-import { getTrends } from "../home/lib/getTrends";
+import { getTrends } from "../_lib/getTrends";
 
 export default function TrendSection() {
   const { data: session } = useSession();

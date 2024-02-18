@@ -1,13 +1,10 @@
-type Props = { pageParam?: number };
-export async function getFollowingPosts({ pageParam }: Props) {
-  const res = await fetch(
-    `http://localhost:9090/api/followingPosts?cursor=${pageParam}`,
-    {
-      next: {
-        tags: ["posts", "followings"],
-      },
-    }
-  );
+export async function getFollowingPosts() {
+  const res = await fetch(`http://localhost:9090/api/followingPosts`, {
+    next: {
+      tags: ["posts", "followings"],
+    },
+    cache: "no-store",
+  });
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 

@@ -10,15 +10,19 @@ import TabProvider from "./_component/TabProvider";
 import style from "./home.module.css";
 
 import TabDecider from "./_component/TabDecider";
+import { Suspense } from "react";
+import Loading from "./loading";
+import TabDeciderSuspense from "./_component/TabDeciderSuspense";
 
 async function getPostRecommends() {}
 
 export default async function Home() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery({
+  await queryClient.prefetchInfiniteQuery({
     queryKey: ["posts", "recommends"],
     queryFn: getPostRecommends,
+    initialPageParam: 0,
   });
   const dehydratedState = dehydrate(queryClient);
   return (
@@ -27,7 +31,9 @@ export default async function Home() {
         <TabProvider>
           <Tab />
           <PostForm />
-          <TabDecider />
+          <Suspense fallback={<Loading />}>
+            <TabDeciderSuspense />
+          </Suspense>
         </TabProvider>
       </HydrationBoundary>
     </main>

@@ -16,3 +16,4 @@ export default function Login() {
   router.replace("/i/flow/login");
   return <Main />;
 }
+//인터셉트라우트는 클라이언트에서 페이지를 넘어갔을때 관여한다

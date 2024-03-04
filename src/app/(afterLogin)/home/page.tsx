@@ -6,8 +6,6 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import TabDeciderSuspense from "./_component/TabDeciderSuspense";
 
-async function getPostRecommends() {}
-
 export default async function Home() {
   return (
     <main className={style.main}>

@@ -17,7 +17,7 @@ export default function PostRecommends() {
   const {
     data,
     fetchNextPage,
-    hasNextPage,
+    hasNextPage, //다음 페이지를 부를게 있다 true 없으면 false
     isFetching, //데이터를 가져올때 true
     isPending, //데이터를 불러오지 않았을때 true
     isLoading, // isPending && isFetching // 데이터를 가져올때 isLoading도 true
@@ -43,6 +43,8 @@ export default function PostRecommends() {
 
   useEffect(() => {
     if (inView) {
+      //inView는 처음 false 였다 화면을 내릴때 ref가 보이면서 true가 된다
+      // !isFetching 이렇게 해야 데이터를 가져오지 않을때 해야 실수로 같은 데이터 여러분 가져오는걸 막을 수 있다.
       !isFetching && hasNextPage && fetchNextPage();
     }
   }, [inView, isFetching, hasNextPage, fetchNextPage]);

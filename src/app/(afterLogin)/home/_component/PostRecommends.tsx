@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  InfiniteData,
-  useInfiniteQuery,
-  useQuery,
-} from "@tanstack/react-query";
+import { InfiniteData, useInfiniteQuery } from "@tanstack/react-query";
 
 import Post from "@/app/(afterLogin)/_component/Post";
 import { Post as IPost } from "../../../model/Post";
